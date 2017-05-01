@@ -4,14 +4,27 @@ import android.content.Intent;
 import android.support.v4.media.MediaBrowserServiceCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ResultActivity extends AppCompatActivity {
+
+    //物件宣告
+    Button Submit;
+    String Serial_A;
+    String Serial_B;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        //建立一個按鈕，可進行傳播
+       Submit = (Button)findViewById(R.id.bt_submit);
+        //設定OnClickListener
+        Submit.setOnClickListener(submit_click);
 
         Intent myIntent = getIntent();
         String Serial_A = myIntent.getStringExtra("Serial_A");
@@ -27,5 +40,18 @@ public class ResultActivity extends AppCompatActivity {
         String theResult = myBase.FindItem(Serial_A,Serial_B); //取得結果
         TextView tv6 = (TextView)findViewById(R.id.textView6);
         tv6.setText(theResult);
+
     }
+    private View.OnClickListener submit_click = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {測試用
+            Intent myIntent = new Intent();
+            myIntent.setAction("lincyu.NOTIFICATION");
+            myIntent.putExtra("Serial_A",Serial_A);
+            myIntent.putExtra("Serial_B",Serial_B);
+            sendBroadcast(myIntent);
+           //Toast.makeText(ResultActivity.this, "廣播已發送 : "+Serial_A+Serial_B, Toast.LENGTH_SHORT).show();//
+
+        }
+    };
 }
