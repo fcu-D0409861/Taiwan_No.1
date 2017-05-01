@@ -44,13 +44,13 @@ public class ResultActivity extends AppCompatActivity {
     }
     private View.OnClickListener submit_click = new View.OnClickListener() {
         @Override
-        public void onClick(View v) {測試用
+        public void onClick(View v) {
             Intent myIntent = new Intent();
             myIntent.setAction("lincyu.NOTIFICATION");
             myIntent.putExtra("Serial_A",Serial_A);
             myIntent.putExtra("Serial_B",Serial_B);
             sendBroadcast(myIntent);
-           //Toast.makeText(ResultActivity.this, "廣播已發送 : "+Serial_A+Serial_B, Toast.LENGTH_SHORT).show();//
+           //Toast.makeText(ResultActivity.this, "廣播已發送 : "+Serial_A+Serial_B, Toast.LENGTH_SHORT).show();//測試用
 
         }
     };
