@@ -67,6 +67,11 @@ public class DataBase {
                 theItem = FindItemSub(digit5);
                 break;
             }
+            case "41298890":{
+                theCompany = "必勝客比薩";
+                theItem = FindItemSub(digit5);
+                break;
+            }
             default:{
 
             }
