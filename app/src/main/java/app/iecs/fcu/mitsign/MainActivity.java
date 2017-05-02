@@ -10,13 +10,10 @@ import android.view.View.OnClickListener;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
     //物件宣告
     EditText Serial_A;
     EditText Serial_B;
     Button Submit;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         //設定OnClickListener
         Submit.setOnClickListener(submit_click);
     }
-
     private OnClickListener submit_click = new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -51,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 myIntent.putExtra("Serial_B",number_B);
                 startActivity(myIntent); //跳至結果頁面
             }
-
         }
     };
 }
