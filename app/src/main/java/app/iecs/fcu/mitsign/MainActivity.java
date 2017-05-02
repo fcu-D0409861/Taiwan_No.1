@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 myIntent.putExtra("Serial_A",number_A);
                 myIntent.putExtra("Serial_B",number_B);
                 startActivity(myIntent); //跳至結果頁面
-                //Toast.makeText(MainActivity.this, "PASS\n"+number_A+"\n"+number_B, Toast.LENGTH_SHORT).show();
             }
 
         }

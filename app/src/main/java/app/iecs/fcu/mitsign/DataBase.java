@@ -95,6 +95,10 @@ public class DataBase {
                 theResult="多功能申縮如意棒";
                 break;
             }
+            case "94870":{
+                theResult="頂級三寶飯";
+                break;
+            }
             default:{
                 theResult="公司上市紀念筆";
                 break;
