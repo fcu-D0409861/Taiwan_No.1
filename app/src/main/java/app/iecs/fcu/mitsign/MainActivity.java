@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent); //跳至結果頁面
                 //Toast.makeText(MainActivity.this, "PASS\n"+number_A+"\n"+number_B, Toast.LENGTH_SHORT).show();
             }
+
         }
     };
 }

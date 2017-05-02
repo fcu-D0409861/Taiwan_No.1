@@ -91,6 +91,10 @@ public class DataBase {
                 theResult="金屬質感傳輸線";
                 break;
             }
+            case "19487":{
+                theResult="多功能申縮如意棒";
+                break;
+            }
             default:{
                 theResult="公司上市紀念筆";
                 break;
