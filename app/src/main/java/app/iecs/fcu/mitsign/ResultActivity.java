@@ -22,9 +22,9 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         //建立一個按鈕，可進行傳播
-       Submit = (Button)findViewById(R.id.bt_submit);
+        //Submit = (Button)findViewById(R.id.bt_submit);
         //設定OnClickListener
-        Submit.setOnClickListener(submit_click);
+        //Submit.setOnClickListener(submit_click);
 
         Intent myIntent = getIntent();
         String Serial_A = myIntent.getStringExtra("Serial_A");
@@ -46,10 +46,11 @@ public class ResultActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent myIntent = new Intent();
-            myIntent.setAction("lincyu.NOTIFICATION");
+            //myIntent.setAction("lincyu.NOTIFICATION");
             myIntent.putExtra("Serial_A",Serial_A);
             myIntent.putExtra("Serial_B",Serial_B);
-            sendBroadcast(myIntent);
+            //myIntent.setAction("lincyu.NOTIFICATION");//呼叫接收者的通關密語
+            //sendBroadcast(myIntent);
            //Toast.makeText(ResultActivity.this, "廣播已發送 : "+Serial_A+Serial_B, Toast.LENGTH_SHORT).show();//測試用
 
         }

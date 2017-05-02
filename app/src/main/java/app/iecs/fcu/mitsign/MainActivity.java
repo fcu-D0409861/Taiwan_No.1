@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 myIntent.setClass(MainActivity.this,ResultActivity.class);
                 myIntent.putExtra("Serial_A",number_A);
                 myIntent.putExtra("Serial_B",number_B);
-                myIntent.setAction("lincyu.NOTIFICATION");//呼叫接收者的通關密語
                 startActivity(myIntent); //跳至結果頁面
-                sendBroadcast(myIntent);
                 //Toast.makeText(MainActivity.this, "PASS\n"+number_A+"\n"+number_B, Toast.LENGTH_SHORT).show();
             }
 
