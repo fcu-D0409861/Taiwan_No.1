@@ -37,7 +37,7 @@ public class ResultActivity extends AppCompatActivity {
     private OnClickListener letsBack = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            finish();
+            finish(); //back
         }
     };
 
