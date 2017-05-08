@@ -69,6 +69,6 @@ public class ResultActivity extends AppCompatActivity {
              String.valueOf(CH2)+
              String.valueOf(CH3)+
              String.valueOf(CH4);
-        return fi;
+        return fi; //to return
     };
 }
