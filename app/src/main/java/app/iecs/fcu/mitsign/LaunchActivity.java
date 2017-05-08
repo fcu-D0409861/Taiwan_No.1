@@ -1,11 +1,16 @@
 package app.iecs.fcu.mitsign;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,4 +58,38 @@ public class LaunchActivity extends AppCompatActivity {
             }
         }
     };
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_launch, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        switch (item.getItemId()){
+            case R.id.mi_history:
+                Intent goHistory = new Intent();
+                goHistory.setClass(LaunchActivity.this,HistoryActivity.class);
+                startActivity(goHistory);
+                break;
+            case R.id.mi_about:
+                AlertDialog.Builder myAlertBullder = new AlertDialog.Builder(LaunchActivity.this);
+                myAlertBullder.setTitle("關於本程式")
+                        .setMessage("　MIT標章查詢\n" +
+                                    "開發者：賴傳安(d0486467)\n" +
+                                    "　　　　蕭賀吉(d0409861)\n" +
+                                    "　　　　侯景勛(d0409679)\n\n" +
+                                    "聯絡信箱：d0486467@mail.fcu.edu.tw\n\n" +
+                                    "逢甲大學 行動應用程式 課程專題")
+                        .setPositiveButton("確認",new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //none to do
+                            }
+                        })
+                        .show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
