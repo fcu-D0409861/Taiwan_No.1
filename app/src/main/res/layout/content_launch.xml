@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="app.iecs.fcu.mitsign.LaunchActivity"
+    tools:showIn="@layout/activity_launch">
+
+    <LinearLayout
+        android:id="@+id/layout_main_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_lable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="MIT標章查詢"
+            android:textColor="#000000"
+            android:textSize="26dp" />
+
+        <TextView
+            android:id="@+id/tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <EditText
+            android:id="@+id/et_serial_A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="  第一欄標章編號 (8位)"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+        <TextView
+            android:id="@+id/tv_empty_2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <EditText
+            android:id="@+id/et_serial_B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="  第二欄標章編號 (5位)"
+            android:inputType="number"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:elevation="0dp"
+            android:text="送出查詢"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/iv_MITsign"
+            android:layout_width="165dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/mit_sign_unbackground" />
+
+    </LinearLayout>
+</RelativeLayout>

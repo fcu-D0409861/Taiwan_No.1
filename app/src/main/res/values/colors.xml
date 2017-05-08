@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="TiffanyBlue">#81D8D0</color>
+    <color name="StarbucksGreen">#0c6036</color>
+    <color name="AliceBlue">#f0f8ff</color>
+    <color name="Amazon">#3b7a57</color>
+    <color name="Skype">#00aff0</color>
 </resources>
