@@ -36,6 +36,12 @@ public class LaunchActivity extends AppCompatActivity {
         //設定OnClickListener
         Submit.setOnClickListener(submit_click);
     }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Serial_A.setText("");
+        Serial_B.setText("");
+    }
     private View.OnClickListener submit_click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
