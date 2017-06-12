@@ -25,7 +25,7 @@
             android:textSize="12pt" />
 
         <TextView
-            android:id="@+id/tv_result_int"
+            android:id="@+id/tv_serial_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
@@ -47,7 +47,29 @@
             android:textSize="12pt" />
 
         <TextView
-            android:id="@+id/tv_result"
+            android:id="@+id/tv_industry_plus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="null"
+            android:textColor="#000000"
+            android:textSize="12pt" />
+
+        <TextView
+            android:id="@+id/tv_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="null"
+            android:textColor="#000000"
+            android:textSize="12pt" />
+
+        <TextView
+            android:id="@+id/tv_product_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
@@ -64,12 +86,12 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:text="產品編號："
+            android:text="產品備註："
             android:textColor="#000000"
             android:textSize="12pt" />
 
         <TextView
-            android:id="@+id/tv_serialnumber"
+            android:id="@+id/tv_others"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"

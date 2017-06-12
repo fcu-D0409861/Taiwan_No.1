@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">MITsign</string>
-    <string name="title_activity_launch">LaunchActivity</string>
+    <string name="app_name">MIT標章查詢器</string>
+    <string name="title_activity_launch">MIT標章查詢器</string>
 </resources>

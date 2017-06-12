@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "812245362402",
+    "firebase_url": "https://mitsign-6a222.firebaseio.com",
+    "project_id": "mitsign-6a222",
+    "storage_bucket": "mitsign-6a222.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812245362402:android:a36611a376b435ed",
+        "android_client_info": {
+          "package_name": "app.iecs.fcu.mitsign"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812245362402-gdjcmf1ng97plu9ppaarq230l02ujkb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.iecs.fcu.mitsign",
+            "certificate_hash": "61a110e3e2890f1e53899931db281b5140e83004"
+          }
+        },
+        {
+          "client_id": "812245362402-h2lnjak6f7s8rbdhhn7oqt2vht3sp5cs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO9RVUZ6FVS08E6YL91oIHGaCPzYvtXVE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812245362402-h2lnjak6f7s8rbdhhn7oqt2vht3sp5cs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
