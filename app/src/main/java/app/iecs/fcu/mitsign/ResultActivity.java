@@ -44,48 +44,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView serial_number = (TextView)findViewById(R.id.tv_serial_number);
         serial_number.setText(mynumber);
 
-        SignStruct[] gg3be0;
-        int ggvalue=0;
 
-        FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = fbdb.getReference("");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-
-                    DataSnapshot dsSign_number = ds.child("Sign_number");
-                    String tempSign_number = (String)dsSign_number.getValue();
-
-                    DataSnapshot dsBrand = ds.child("Brand");
-                    String tempBrand = (String)dsBrand.getValue();
-
-                    DataSnapshot dsIndustry = ds.child("Industry");
-                    String tempIndustry = (String)dsIndustry.getValue();
-
-                    DataSnapshot dsOthers = ds.child("Others");
-                    String tempOthers = (String)dsOthers.getValue();
-
-                    DataSnapshot dsProduct_name = ds.child("Product_name");
-                    String tempProduct_name = (String)dsProduct_name.getValue();
-
-                    DataSnapshot dsProduct_number = ds.child("Product_number");
-                    String tempProduct_number = (String)dsProduct_number.getValue();
-
-                    DataSnapshot dsSerial_number = ds.child("Serial_number");
-                    String tempSerial_number = (String)dsSerial_number.getValue();
-
-                    gg3be0
-
-                    Log.v("AdoptProduct",tempSign_number + " to " + mynumber);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.v("AdoptProduct",databaseError.getMessage());
-            }
-        });
 
 
     }

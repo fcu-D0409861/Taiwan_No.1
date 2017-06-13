@@ -13,6 +13,16 @@ public class SignStruct {
     private String Serial_number;
     private String Sign_number;
 
+    public SignStruct(String brand, String industry, String others, String product_name, String product_number, String serial_number, String sign_number) {
+        Brand = brand;
+        Industry = industry;
+        Others = others;
+        Product_name = product_name;
+        Product_number = product_number;
+        Serial_number = serial_number;
+        Sign_number = sign_number;
+    }
+
     public String getBrand() {
         return Brand;
     }

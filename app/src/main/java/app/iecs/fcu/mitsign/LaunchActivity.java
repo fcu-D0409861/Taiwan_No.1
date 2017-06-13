@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,11 +17,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.StringTokenizer;
+
 public class LaunchActivity extends AppCompatActivity {
     //物件宣告
     EditText Serial_A;
     EditText Serial_B;
     Button Submit;
+    SignStruct[] myStruct = new SignStruct[150];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +71,17 @@ public class LaunchActivity extends AppCompatActivity {
                 myIntent.setClass(LaunchActivity.this,ResultActivity.class);
                 myIntent.putExtra("Serial_A",number_A);
                 myIntent.putExtra("Serial_B",number_B);
+                String CombineStr = Serial_A + "-" + Serial_B;
+
+                for(int i=0;i<myStruct.length;i++){
+                    if(myStruct[i].getSign_number()==CombineStr){
+                        Toast.makeText(LaunchActivity.this, "WOW", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+
+                //firefire.run();
+
                 startActivity(myIntent); //跳至結果頁面
             }
         }
@@ -97,5 +119,27 @@ public class LaunchActivity extends AppCompatActivity {
                         .show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void getfromfirebase(){
+        FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = fbdb.getReference("");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Firefire firefire = new Firefire(dataSnapshot);
+                firefire.start();
+                firefire.run();
+                firefire.stop();
+                for(int i = 0 ; i < firefire.getMyValue() ; i++){
+                    myStruct[i] = firefire.ToCouLai(i);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.v("AdoptProduct",databaseError.getMessage());
+            }
+        });
+
     }
 }
