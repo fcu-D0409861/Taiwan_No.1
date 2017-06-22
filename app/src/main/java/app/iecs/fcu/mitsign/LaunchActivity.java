@@ -74,7 +74,7 @@ public class LaunchActivity extends AppCompatActivity {
                 reslut_intent.putExtra("Product_number",mySign.getProduct_number());//產品型號
                 reslut_intent.putExtra("Brand",mySign.getBrand());//品牌名稱
                 reslut_intent.putExtra("Other",mySign.getOthers());//備註
-                reslut_intent.setClass(LaunchActivity.this,ResultActivity.class);
+                reslut_intent.setClass(LaunchActivity.this,ResultActivity.class);   //傳到結果
                 startActivity(reslut_intent);
             }
         }
