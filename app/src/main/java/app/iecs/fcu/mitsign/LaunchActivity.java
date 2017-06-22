@@ -26,11 +26,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.StringTokenizer;
 
 public class LaunchActivity extends AppCompatActivity {
+
     //物件宣告
     EditText Serial_A;
     EditText Serial_B;
     Button Submit;
-    SignStruct[] myStruct = new SignStruct[150];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +38,10 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         //物件指向View元件
         Serial_A = (EditText)findViewById(R.id.et_serial_A);
         Serial_B = (EditText)findViewById(R.id.et_serial_B);
         Submit = (Button)findViewById(R.id.bt_submit);
-
         //設定OnClickListener
         Submit.setOnClickListener(submit_click);
     }
@@ -58,6 +56,7 @@ public class LaunchActivity extends AppCompatActivity {
         public void onClick(View v) {
             String number_A = Serial_A.getText().toString();
             String number_B = Serial_B.getText().toString();
+
             if(number_A.length() != 8 ){ //第一欄防呆
                 Toast.makeText(LaunchActivity.this, "請在第一欄輸入正確的 8 位數字", Toast.LENGTH_SHORT).show();
                 //Serial_A.setText("");
@@ -67,25 +66,27 @@ public class LaunchActivity extends AppCompatActivity {
                 //Serial_B.setText("");
             }
             else{ //通過防呆測試
-                Intent myIntent = new Intent();
-                myIntent.setClass(LaunchActivity.this,ResultActivity.class);
-                myIntent.putExtra("Serial_A",number_A);
-                myIntent.putExtra("Serial_B",number_B);
-                String CombineStr = Serial_A + "-" + Serial_B;
+                getfromfirebase();
 
-                for(int i=0;i<myStruct.length;i++){
-                    if(myStruct[i].getSign_number()==CombineStr){
-                        Toast.makeText(LaunchActivity.this, "WOW", Toast.LENGTH_LONG).show();
-                    }
-                }
-
-
-                //firefire.run();
-
-                startActivity(myIntent); //跳至結果頁面
+                Intent reslut_intent = new Intent();
+                reslut_intent.putExtra("Sign_number",mySign.getSign_number()); //標章編號
+                reslut_intent.putExtra("Product_name",mySign.getProduct_name());//產品名稱
+                reslut_intent.putExtra("Product_number",mySign.getProduct_number());//產品型號
+                reslut_intent.putExtra("Brand",mySign.getBrand());//品牌名稱
+                reslut_intent.putExtra("Other",mySign.getOthers());//備註
+                reslut_intent.setClass(LaunchActivity.this,ResultActivity.class);
+                startActivity(reslut_intent);
             }
         }
     };
+    private String getSerial_8()    // 前八碼
+    {
+        return Serial_A.getText().toString();
+    }
+    private String getSerail_5()    //後五碼
+    {
+        return Serial_B.getText().toString();
+    }
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_launch, menu);
@@ -121,19 +122,19 @@ public class LaunchActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    SignStruct mySign = new SignStruct("null","null","null","null","null","null","null");
     private void getfromfirebase(){
         FirebaseDatabase fbdb = FirebaseDatabase.getInstance();
         DatabaseReference myRef = fbdb.getReference("");
         myRef.addValueEventListener(new ValueEventListener() {
+            // <=>addListenerForSingValueEvent
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Firefire firefire = new Firefire(dataSnapshot);
                 firefire.start();
+                firefire.setSerial_number(getSerial_8() + "-" +getSerail_5());
                 firefire.run();
-                firefire.stop();
-                for(int i = 0 ; i < firefire.getMyValue() ; i++){
-                    myStruct[i] = firefire.ToCouLai(i);
-                }
+                mySign = firefire.ToCouLai();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

@@ -4,23 +4,28 @@ package app.iecs.fcu.mitsign;
  * Created by Chuan.an on 2017/6/13.
  */
 
-public class SignStruct {
-    private String Brand;
+public  class SignStruct
+//  datastruct
+{
+    private String Serial_number;   //序號
+    private String Sign_number;     //標章編號
+    private String Product_number; //產品名稱
+    private String Product_name;   //產品型號
+    private String Brand;           //品牌名稱
+    private String Others;          //備註
     private String Industry;
-    private String Others;
-    private String Product_name;
-    private String Product_number;
-    private String Serial_number;
-    private String Sign_number;
+
+
 
     public SignStruct(String brand, String industry, String others, String product_name, String product_number, String serial_number, String sign_number) {
-        Brand = brand;
-        Industry = industry;
-        Others = others;
-        Product_name = product_name;
-        Product_number = product_number;
+
         Serial_number = serial_number;
         Sign_number = sign_number;
+        Product_number = product_number;
+        Product_name = product_name;
+        Brand = brand;
+        Others = others;
+        Industry = industry;
     }
 
     public String getBrand() {

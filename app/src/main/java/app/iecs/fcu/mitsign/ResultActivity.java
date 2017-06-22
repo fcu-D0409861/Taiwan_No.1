@@ -32,21 +32,25 @@ public class ResultActivity extends AppCompatActivity {
 
         getBack = (Button)findViewById(R.id.bt_back);
         getBack.setOnClickListener(letsBack);
+
         Intent myIntent = getIntent();
-        String Company = myIntent.getStringExtra("Serial_A");
-        String Product = myIntent.getStringExtra("Serial_B");
-        // 取得來自MainActivity的兩組號碼 Serial_A & Serial_B
-        mynumber = Company +'-'+ Product;
-        TextView myIndustry = (TextView)findViewById(R.id.tv_industry_plus);
-        TextView mybrand = (TextView)findViewById(R.id.tv_brand);
-        TextView myproductnumber = (TextView)findViewById(R.id.tv_product_number);
-        TextView myothers = (TextView)findViewById(R.id.tv_others);
-        TextView serial_number = (TextView)findViewById(R.id.tv_serial_number);
-        serial_number.setText(mynumber);
+        String sign_num = myIntent.getStringExtra("Sign_number");
+        String product_name = myIntent.getStringExtra("Product_name");
+        String product_number = myIntent.getStringExtra("Product_number");
+        String brand = myIntent.getStringExtra("Brand");
+        String other = myIntent.getStringExtra("Other");
 
+        TextView mySignumber = (TextView)findViewById(R.id.tv_serial_number);
+        TextView myProductName = (TextView)findViewById(R.id.tv_product_name);
+        TextView myProductNumber = (TextView)findViewById(R.id.tv_product_number);
+        TextView myBrand = (TextView)findViewById(R.id.tv_brand);
+        TextView myOthers = (TextView)findViewById(R.id.tv_others);
 
-
-
+        mySignumber.setText(sign_num);
+        myProductName.setText(product_name);
+        myProductNumber.setText(product_number);
+        myBrand.setText(brand);
+        myOthers.setText(other);
     }
     private OnClickListener letsBack = new OnClickListener() {
         @Override
